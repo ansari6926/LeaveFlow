@@ -2,6 +2,9 @@
 
 > **Tactive AI-Powered QA Automation, Documentation & Software Engineering Assessment Project**
 
+🎥 **Assessment Presentation & Live Demo Video**:  
+[Watch 5-Minute Video Walkthrough on Google Drive](https://drive.google.com/file/d/1f9CXdMcB8MTCMA9i8aB-qfWzFJDxRXuS/view?usp=sharing) | [VIDEO.md](VIDEO.md)
+
 LeaveFlow is a high-performance Leave Approval Management System built with a 3D glassmorphic SaaS landing page, full employee & manager workflow automation, server-side business rules validation, automated unit and end-to-end (E2E) test suites, deliberate Red Run evidence, and AI Change Loop integration.
 
 ---
