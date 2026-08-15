@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LeaveFlow — Tactive Engineering & QA Assessment Presentation</title>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&family=Outfit:wght@500;700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #090d16;
+      --card: rgba(18, 26, 44, 0.85);
+      --border: rgba(255, 255, 255, 0.12);
+      --primary: #3b82f6;
+      --accent: #8b5cf6;
+      --emerald: #10b981;
+      --rose: #f43f5e;
+      --text: #f8fafc;
+      --muted: #94a3b8;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      overflow: hidden;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    .deck-header {
+      padding: 16px 32px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid var(--border);
+      background: rgba(9, 13, 22, 0.9);
+    }
+    .slide-container {
+      flex: 1;
+      position: relative;
+      overflow: hidden;
+    }
+    .slide {
+      position: absolute;
+      inset: 0;
+      padding: 48px 64px;
+      opacity: 0;
+      pointer-events: none;
+      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+      transform: translateX(40px);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .slide.active {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translateX(0);
+    }
+    h2 {
+      font-family: 'Outfit', sans-serif;
+      font-size: 2.4rem;
+      margin-bottom: 12px;
+      color: #ffffff;
+    }
+    p.subtitle {
+      font-size: 1.1rem;
+      color: var(--muted);
+      margin-bottom: 32px;
+    }
+    .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+    .grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px; }
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      padding: 24px;
+      border-radius: 16px;
+    }
+    .deck-footer {
+      padding: 16px 32px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-top: 1px solid var(--border);
+      background: rgba(9, 13, 22, 0.9);
+    }
+    .btn {
+      padding: 8px 16px;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,0.08);
+      color: white;
+      cursor: pointer;
+      font-weight: 600;
+    }
+    .btn-primary { background: var(--primary); border: none; }
+    .badge {
+      padding: 4px 10px;
+      border-radius: 9999px;
+      font-size: 0.75rem;
+      font-weight: 700;
+    }
+    .badge-green { background: rgba(16,185,129,0.2); color: #34d399; }
+    .badge-red { background: rgba(244,63,94,0.2); color: #f87171; }
+    code { font-family: monospace; color: #60a5fa; }
+  </style>
+</head>
+<body>
+
+  <div class="deck-header">
+    <div style="font-weight: 800; font-size: 1.2rem;">Leave<span style="color:#3b82f6">Flow</span> Presentation</div>
+    <div style="font-size: 0.85rem; color: var(--muted);" id="slide-num">Slide 1 of 10</div>
+  </div>
+
+  <div class="slide-container">
+    <!-- Slide 1 -->
+    <div class="slide active">
+      <span class="badge badge-green" style="width: fit-content; margin-bottom: 16px;">Tactive Assessment Deliverable</span>
+      <h1 style="font-family:'Outfit'; font-size: 3.5rem; font-weight: 800; margin-bottom: 16px;">LeaveFlow</h1>
+      <h3 style="font-size: 1.6rem; color: var(--primary); margin-bottom: 20px;">AI-Powered QA Automation & Software Engineering Assessment</h3>
+      <p style="font-size: 1.1rem; color: var(--muted); max-width: 640px;">
+        A 3D glassmorphic Leave Approval Management System built with full business logic validation, Vitest unit suite, Playwright E2E browser automation, deliberate Red Run evidence, and AI Change Loop integration.
+      </p>
+    </div>
+
+    <!-- Slide 2 -->
+    <div class="slide">
+      <h2>2. The Problem Statement</h2>
+      <p class="subtitle">Challenges in Traditional Employee Leave Systems</p>
+      <div class="grid-3">
+        <div class="card">
+          <h3 style="color:#f87171; margin-bottom:10px;">Manual Bottlenecks</h3>
+          <p style="font-size:0.9rem; color:var(--muted);">Managers struggle with spreadsheet tracking, lost emails, and unverified leave balance calculations.</p>
+        </div>
+        <div class="card">
+          <h3 style="color:#f87171; margin-bottom:10px;">Conflicting Overlaps</h3>
+          <p style="font-size:0.9rem; color:var(--muted);">Employees accidentally submit overlapping requests, causing team understaffing and scheduling conflicts.</p>
+        </div>
+        <div class="card">
+          <h3 style="color:#f87171; margin-bottom:10px;">Lack of Auditability</h3>
+          <p style="font-size:0.9rem; color:var(--muted);">Rejections lack documented justification, leading to employee dissatisfaction and compliance risks.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Slide 3 -->
+    <div class="slide">
+      <h2>3. The Solution: LeaveFlow</h2>
+      <p class="subtitle">Unified 3D Platform with Automated Validation Engine</p>
+      <div class="grid-2">
+        <div class="card">
+          <h3 style="color:var(--primary); margin-bottom:12px;">Real-Time Balance Engine</h3>
+          <p style="font-size:0.92rem; color:var(--muted);">Instant balance deduction upon manager approval, zero delay, real-time sync across employee & manager portals.</p>
+        </div>
+        <div class="card">
+          <h3 style="color:var(--accent); margin-bottom:12px;">Granular Half-Day Support</h3>
+          <p style="font-size:0.92rem; color:var(--muted);">Full Day (1.0d), First Half (0.5d), and Second Half (0.5d) options with smart same-date overlap detection.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Slide 4 -->
+    <div class="slide">
+      <h2>4. User Workflow Matrix</h2>
+      <p class="subtitle">Role-Based Experience for Employees and Managers</p>
+      <div class="grid-2">
+        <div class="card">
+          <h3 style="color:var(--emerald); margin-bottom:10px;">Employee Workflow</h3>
+          <ul style="padding-left:20px; font-size:0.9rem; color:var(--muted); line-height:1.8;">
+            <li>View available balances (Annual, Casual, Sick)</li>
+            <li>Submit leave request with dates & reason</li>
+            <li>Select duration mode (Full/Half Day)</li>
+            <li>Track status (Pending, Approved, Rejected)</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3 style="color:var(--primary); margin-bottom:10px;">Manager Workflow</h3>
+          <ul style="padding-left:20px; font-size:0.9rem; color:var(--muted); line-height:1.8;">
+            <li>Review pending queue with full request context</li>
+            <li>Approve request (triggers auto balance deduction)</li>
+            <li>Reject request with mandatory feedback note</li>
+            <li>Inspect team-wide leave balance directory</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Slide 5 -->
+    <div class="slide">
+      <h2>5. System Architecture</h2>
+      <p class="subtitle">Decoupled React 18 + Node/Express REST Architecture</p>
+      <div class="card">
+        <pre style="font-size:0.85rem; color:#60a5fa; overflow-x:auto;">
+Frontend (React 18 + Three.js WebGL) ──[HTTP REST / JWT]──> Backend API (Express.js)
+                                                                 │
+┌────────────────────────────────────────────────────────────────┴─────────────────┐
+│ Business Rules Engine (Date Overlaps, Balance Limits, Immutability Guards)       │
+└────────────────────────────────────────────────────────────────┬─────────────────┘
+                                                                 │
+                                                    SQLite Persistent JSON Database
+        </pre>
+      </div>
+    </div>
+
+    <!-- Slide 6 -->
+    <div class="slide">
+      <h2>6. Enforced Business Rules</h2>
+      <p class="subtitle">14 Server-Validated Constraints Enforced</p>
+      <div class="grid-3">
+        <div class="card"><strong style="color:white">Date Integrity:</strong> <span style="color:var(--muted); font-size:0.85rem">Start date $\le$ End date & duration $> 0$.</span></div>
+        <div class="card"><strong style="color:white">Balance Cap:</strong> <span style="color:var(--muted); font-size:0.85rem">Requests exceeding available balance blocked.</span></div>
+        <div class="card"><strong style="color:white">Overlap Guard:</strong> <span style="color:var(--muted); font-size:0.85rem">Conflicting date overlaps automatically rejected.</span></div>
+        <div class="card"><strong style="color:white">Self-Approval Guard:</strong> <span style="color:var(--muted); font-size:0.85rem">Managers cannot approve own requests.</span></div>
+        <div class="card"><strong style="color:white">Immutability:</strong> <span style="color:var(--muted); font-size:0.85rem">Completed decisions cannot be modified.</span></div>
+        <div class="card"><strong style="color:white">Audit Note:</strong> <span style="color:var(--muted); font-size:0.85rem">Rejection requires mandatory explanation string.</span></div>
+      </div>
+    </div>
+
+    <!-- Slide 7 -->
+    <div class="slide">
+      <h2>7. Automated Testing Architecture</h2>
+      <p class="subtitle">Dual-Layer Test Automation (Vitest & Playwright)</p>
+      <div class="grid-2">
+        <div class="card">
+          <h3 style="color:var(--emerald); margin-bottom:10px;">Vitest Unit Suite (15/15 Passed)</h3>
+          <p style="font-size:0.88rem; color:var(--muted);">Validates business logic methods, date math, overlap engine, half-day duration, and authorization guards.</p>
+        </div>
+        <div class="card">
+          <h3 style="color:var(--primary); margin-bottom:10px;">Playwright E2E Suite (5/5 Passed)</h3>
+          <p style="font-size:0.88rem; color:var(--muted);">Automates browser user journeys across Chromium viewports testing employee submit, manager review, and 3D hero rendering.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Slide 8 -->
+    <div class="slide">
+      <h2>8. Deliberate Red Run Verification</h2>
+      <p class="subtitle">Controlled Bug Detection & Evidence Logging</p>
+      <div class="grid-2">
+        <div class="card" style="border-color: rgba(244,63,94,0.4);">
+          <span class="badge badge-red" style="margin-bottom:10px; display:inline-block;">Red Run Execution</span>
+          <p style="font-size:0.88rem; color:var(--muted); margin-bottom:10px;">Activated <code>DELIBERATE_RED_RUN_BUG</code> (Balance deduction bypassed on approval).</p>
+          <div style="background:rgba(0,0,0,0.4); padding:10px; border-radius:6px; font-size:0.8rem; color:#f87171;">
+            ❌ FAIL: Expected 9 remaining balance, but received 12.<br/>
+            Output logged to test-results/red-run/red_run_output.log
+          </div>
+        </div>
+        <div class="card" style="border-color: rgba(16,185,129,0.4);">
+          <span class="badge badge-green" style="margin-bottom:10px; display:inline-block;">Final Green Run</span>
+          <p style="font-size:0.88rem; color:var(--muted); margin-bottom:10px;">Deactivated bug, restored correct balance deduction logic.</p>
+          <div style="background:rgba(0,0,0,0.4); padding:10px; border-radius:6px; font-size:0.8rem; color:#34d399;">
+            ✅ PASS: Balance deducted from 12 to 9 days.<br/>
+            Output logged to test-results/final-run/final_run_output.log
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Slide 9 -->
+    <div class="slide">
+      <h2>9. AI Change Loop Implementation</h2>
+      <p class="subtitle">Feature Extension: Half-Day Leave Support</p>
+      <div class="card">
+        <p style="font-size:0.95rem; color:white; margin-bottom:12px;"><strong>Iterative Resolution Trajectory:</strong></p>
+        <ol style="padding-left:20px; font-size:0.88rem; color:var(--muted); line-height:1.8;">
+          <li><strong>Attempt 1:</strong> Extended schema for <code>FIRST_HALF</code> & <code>SECOND_HALF</code> (0.5 day math). Overlap engine blocked opposite half-days on same date.</li>
+          <li><strong>Analysis:</strong> Identified calendar date overlap engine needed half-day granularity awareness.</li>
+          <li><strong>Attempt 2:</strong> Updated overlap check logic to allow opposite half-days on same date while blocking identical half-days or full-day conflicts.</li>
+          <li><strong>Outcome:</strong> 100% test suite green across unit & E2E tests! Documented in <code>docs/ai-change-loop.md</code>.</li>
+        </ol>
+      </div>
+    </div>
+
+    <!-- Slide 10 -->
+    <div class="slide">
+      <h2>10. Summary & Deliverables Status</h2>
+      <p class="subtitle">Tactive Assessment Verification Checklist</p>
+      <div class="grid-2">
+        <div class="card">
+          <ul style="list-style:none; line-height:2; font-size:0.9rem; color:var(--muted);">
+            <li>✅ Working 3D WebGL Web Application</li>
+            <li>✅ Employee & Manager Dashboards</li>
+            <li>✅ 14 Business Rules Server Validated</li>
+            <li>✅ Vitest Unit & Integration Test Suite</li>
+            <li>✅ Playwright E2E Automation Suite</li>
+          </ul>
+        </div>
+        <div class="card">
+          <ul style="list-style:none; line-height:2; font-size:0.9rem; color:var(--muted);">
+            <li>✅ Deliberate Red Run Evidence Captured</li>
+            <li>✅ AI Change Loop Documented</li>
+            <li>✅ Architecture & Design Docs Complete</li>
+            <li>✅ Interactive Presentation Deck</li>
+            <li>✅ Evaluator-Friendly README</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="deck-footer">
+    <button class="btn" id="btn-prev" onclick="prevSlide()">← Previous</button>
+    <div style="font-size:0.8rem; color:var(--muted);">Use Left / Right Arrow Keys to Navigate</div>
+    <button class="btn btn-primary" id="btn-next" onclick="nextSlide()">Next →</button>
+  </div>
+
+  <script>
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.slide');
+    const slideNum = document.getElementById('slide-num');
+
+    function updateSlide() {
+      slides.forEach((slide, idx) => {
+        slide.classList.toggle('active', idx === currentSlide);
+      });
+      slideNum.textContent = `Slide ${currentSlide + 1} of ${slides.length}`;
+    }
+
+    function nextSlide() {
+      if (currentSlide < slides.length - 1) {
+        currentSlide++;
+        updateSlide();
+      }
+    }
+
+    function prevSlide() {
+      if (currentSlide > 0) {
+        currentSlide--;
+        updateSlide();
+      }
+    }
+
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight' || e.key === 'Space') nextSlide();
+      if (e.key === 'ArrowLeft') prevSlide();
+    });
+  </script>
+</body>
+</html>
