@@ -1,0 +1,28 @@
+# Node dependencies
+node_modules/
+.pnpm-store/
+
+# Build outputs
+dist/
+build/
+
+# Logs
+*.log
+npm-debug.log*
+
+# Playwright artifacts (excluding captured assessment evidence)
+tests/test-results/
+tests/playwright-report/
+
+# Environment files
+.env
+.env.local
+.env.development.local
+.env.production.local
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Database storage runtime files
+backend/data/database.json
